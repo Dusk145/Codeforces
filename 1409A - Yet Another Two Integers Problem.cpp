@@ -1,31 +1,32 @@
 #include <bits/stdc++.h>
+#define ll long long
+#define endl "\n"
 
 using namespace std;
 
 int main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
 	int t;
 	cin >> t;
 	while (t--){
 		int a, b;
 		cin >> a >> b;
-		int cnt = 0;
-		if (a < b){
-			for (int i = 10; i >= 1; i--){
-					while (a + i < b){
-						cnt++;
-						a += i;
-					}
-			}
-		} else if (a > b){
-			for (int i = 10; i >= 1; i--){
-				while (a - i > b){
-					cnt++;
-					a -= i;
-				}
+		if (a > b){
+			swap(a, b);
+		}
+		int cnt = 0, idx = 10;
+		while (a != b){
+			if (a + idx > b){
+				--idx;
+			} else {
+				int temp = (b - a) / idx;
+				a += temp * idx;
+				cnt += temp;
 			}
 		}
 		cout << cnt << endl;
-		cnt = 0;
 	}
 	return 0;
 }
