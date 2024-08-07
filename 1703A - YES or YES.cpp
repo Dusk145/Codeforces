@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define ll long long
 #define endl "\n"
 
 using namespace std;
@@ -16,6 +17,7 @@ int main(){
     cout.tie(0);
     int t;
     cin >> t;
+    cin.ignore();
     while (t--){
         string a;
         getline(cin, a);
